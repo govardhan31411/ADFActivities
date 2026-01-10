@@ -1,0 +1,9 @@
+{
+	"name": "HondaDataFactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "52c9f5d0-5b93-4698-8add-4dd676bf8c5c",
+		"tenantId": "6a59221d-7070-4ead-8ffe-3e2279b9f5e4"
+	}
+}
