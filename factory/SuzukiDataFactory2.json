@@ -1,0 +1,9 @@
+{
+	"name": "SuzukiDataFactory2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7d645752-c81d-4128-b426-fbf7df27bf33",
+		"tenantId": "6a59221d-7070-4ead-8ffe-3e2279b9f5e4"
+	}
+}
