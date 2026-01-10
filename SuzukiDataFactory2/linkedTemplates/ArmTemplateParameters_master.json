@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "SuzukiDataFactory2"
+		},
+		"githttpsuzukisink_accountKey": {
+			"value": ""
+		},
+		"sinkadls_accountKey": {
+			"value": ""
+		},
+		"githttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"githttpsuzukisink_properties_typeProperties_url": {
+			"value": "https://suzukistorageaccount2.dfs.core.windows.net/"
+		},
+		"githttpsuzukisource_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"sinkadls_properties_typeProperties_url": {
+			"value": "https://hondastorage123.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
