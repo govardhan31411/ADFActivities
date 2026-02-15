@@ -1,0 +1,9 @@
+{
+	"name": "dpe-adf-gova",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4a31bf67-2401-41e6-ba02-f66b52193d3d",
+		"tenantId": "7aab1ee0-0027-4f8e-be9f-df05f17fd765"
+	}
+}
