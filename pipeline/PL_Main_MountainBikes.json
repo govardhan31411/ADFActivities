@@ -99,14 +99,10 @@
 							"typeProperties": {
 								"method": "POST",
 								"headers": {
-									"Content-Type": "application/json"
+									"Content-Type": "Content-Type"
 								},
 								"turnOffAsync": true,
-								"url": "https://prod-02.centralindia.logic.azure.com:443/workflows/4336989bdacf437ebae7e44072ef3d01/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=jf9qpSBvdvJeOdLO7Gi2gkru1IVqmfk_ix5JotiqyL8",
-								"body": {
-									"value": "{\n  \"RecordCount\": \"@{activity('Copy_MountainBikes').output.rowsCopied}\"\n}\n",
-									"type": "Expression"
-								}
+								"url": "https://prod-02.centralindia.logic.azure.com:443/workflows/4336989bdacf437ebae7e44072ef3d01/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=jf9qpSBvdvJeOdLO7Gi2gkru1IVqmfk_ix5JotiqyL8"
 							}
 						}
 					]
