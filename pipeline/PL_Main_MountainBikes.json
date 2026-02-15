@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@less(int(activity('Call_LogicApp').output.Response.RecordCount), 100)\n",
+						"value": "@less(int(activity('Call_LogicApp').output.RecordCount), 100)",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [
@@ -33,7 +33,7 @@
 					],
 					"ifTrueActivities": [
 						{
-							"name": "Copy_MountainBikes",
+							"name": "Copy_To_Storage",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -90,7 +90,14 @@
 			{
 				"name": "Call_LogicApp",
 				"type": "WebActivity",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Copy_MountainBikes",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -101,16 +108,65 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "POST",
-					"headers": {
-						"Content-Type": "application/json"
-					},
 					"turnOffAsync": false,
 					"url": "https://prod-02.centralindia.logic.azure.com:443/workflows/4336989bdacf437ebae7e44072ef3d01/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=jf9qpSBvdvJeOdLO7Gi2gkru1IVqmfk_ix5JotiqyL8",
 					"body": {
-						"value": "{\n  \"RecordCount\": \"@{activity('Copy_MountainBikes').output.rowsCopied}\"\n}",
+						"value": "{}\n",
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "Copy_MountainBikes",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_SQL_MountainBikes",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
