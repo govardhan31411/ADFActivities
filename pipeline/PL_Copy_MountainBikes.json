@@ -53,6 +53,36 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Return_TotalCount",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Copy_MountainBikes",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "TotalCount",
+							"value": {
+								"type": "String",
+								"content": "@string(activity('Copy_MountainBikes').output.rowsCopied)"
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
 			}
 		],
 		"annotations": []
