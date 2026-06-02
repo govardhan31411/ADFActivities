@@ -1,26 +1,19 @@
 {
-	"name": "ds_git_dynamic",
+	"name": "Http_source_ds",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Http_source_ls",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"p_rel_url": {
-				"type": "String"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": {
-					"value": "@dataset().p_rel_url",
-					"type": "Expression"
-				}
+				"relativeUrl": "anshlambaoldgit/Adventure-Works-Data-Engineering-Project/refs/heads/main/Data/AdventureWorks_Products.csv"
 			},
 			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""

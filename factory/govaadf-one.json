@@ -1,0 +1,15 @@
+{
+	"name": "govaadf-one",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "854f0f0f-03e6-4d0b-b986-65b58d3c1e76",
+		"tenantId": "27191f80-6224-426f-a31e-4904bb7927a3"
+	}
+}
